@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-post-heading" data-cy="PostCreateUpdateHeading" jhiTranslate="recipehipsterApp.post.home.createOrEditLabel">
+        Create or edit a Post
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="recipehipsterApp.post.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="recipehipsterApp.post.contents" for="field_contents">Contents</label>
+          <input type="text" class="form-control" name="contents" id="field_contents" data-cy="contents" formControlName="contents" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="recipehipsterApp.post.recipe" for="field_recipe">Recipe</label>
+          <select class="form-control" id="field_recipe" data-cy="recipe" name="recipe" formControlName="recipe">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="recipeOption.id === editForm.get('recipe')!.value?.id ? editForm.get('recipe')!.value : recipeOption"
+              *ngFor="let recipeOption of recipesCollection; trackBy: trackRecipeById"
+            >
+              {{ recipeOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

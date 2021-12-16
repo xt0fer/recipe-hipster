@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="opinion">
+      <h2 data-cy="opinionDetailsHeading"><span jhiTranslate="recipehipsterApp.opinion.detail.title">Opinion</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ opinion.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.opinion.contents">Contents</span></dt>
+        <dd>
+          <span>{{ opinion.contents }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.opinion.commentDate">Comment Date</span></dt>
+        <dd>
+          <span>{{ opinion.commentDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.opinion.post">Post</span></dt>
+        <dd>
+          <div *ngIf="opinion.post">
+            <a [routerLink]="['/post', opinion.post?.id, 'view']">{{ opinion.post?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/opinion', opinion.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

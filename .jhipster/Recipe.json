@@ -1,0 +1,50 @@
+{
+  "name": "Recipe",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ingredients",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "steps",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "post",
+      "otherEntityRelationshipName": "recipe",
+      "relationshipName": "post",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "chefster",
+      "otherEntityRelationshipName": "recipe",
+      "relationshipName": "chefster"
+    }
+  ],
+  "entityTableName": "recipe",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211214213143"
+}

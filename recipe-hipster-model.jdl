@@ -1,0 +1,56 @@
+entity Recipe {
+	title String,
+	notes String,
+	ingredients String,
+	steps String,
+	postDate Instant
+}
+
+entity Post {
+	title String,
+	contents String
+}
+
+entity Opinion {
+	contents String,
+	commentDate Instant
+}
+/**
+ * The Chefster entity.
+ */
+entity Chefster {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String
+}
+
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+	Post to Recipe
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Chefster to Recipe{chefster},
+	Post to Opinion
+}
+
+// Set pagination options
+paginate Recipe, Chefster, Post with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+//except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,26 @@
+{
+  "recipehipsterApp": {
+    "opinion": {
+      "home": {
+        "title": "Opinions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Opinion",
+        "createOrEditLabel": "Create or edit a Opinion",
+        "notFound": "No Opinions found"
+      },
+      "created": "A new Opinion is created with identifier {{ param }}",
+      "updated": "A Opinion is updated with identifier {{ param }}",
+      "deleted": "A Opinion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Opinion {{ id }}?"
+      },
+      "detail": {
+        "title": "Opinion"
+      },
+      "id": "ID",
+      "contents": "Contents",
+      "commentDate": "Comment Date",
+      "post": "Post"
+    }
+  }
+}

@@ -108,6 +108,7 @@
   },
   "defaultProject": "recipehipster",
   "cli": {
+    "analytics": false,
     "packageManager": "npm"
   }
 }

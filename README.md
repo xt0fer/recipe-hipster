@@ -1,5 +1,31 @@
 # recipehipster
 
+Snarf'd from the project generation script:
+
+Run your Spring Boot application:
+```
+npm install
+
+./mvnw
+```
+
+And in another terminal,
+
+```
+npm start
+```
+
+After changing the JDL file, you need to clean on maven, so the old H2 database file goes away.
+
+`./mvnw clean`
+
+## Recipe Hipster
+
+a Recipe site for Hipsters.
+(gonna make a *lot* of money with this idea!)
+
+## JHipster Notes 
+
 This application was generated using JHipster 7.4.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.4.1](https://www.jhipster.tech/documentation-archive/v7.4.1).
 
 ## Project Structure

@@ -48,6 +48,15 @@ public class CacheConfiguration {
             createCache(cm, rocks.zipcode.recipehipster.domain.User.class.getName());
             createCache(cm, rocks.zipcode.recipehipster.domain.Authority.class.getName());
             createCache(cm, rocks.zipcode.recipehipster.domain.User.class.getName() + ".authorities");
+            createCache(cm, rocks.zipcode.recipehipster.domain.Recipe.class.getName());
+            createCache(cm, rocks.zipcode.recipehipster.domain.Comment.class.getName());
+            createCache(cm, rocks.zipcode.recipehipster.domain.Chefster.class.getName());
+            createCache(cm, rocks.zipcode.recipehipster.domain.Chefster.class.getName() + ".recipes");
+            createCache(cm, rocks.zipcode.recipehipster.domain.Recipe.class.getName() + ".comments");
+            createCache(cm, rocks.zipcode.recipehipster.domain.Recipe.class.getName() + ".opinions");
+            createCache(cm, rocks.zipcode.recipehipster.domain.Opinion.class.getName());
+            createCache(cm, rocks.zipcode.recipehipster.domain.Post.class.getName());
+            createCache(cm, rocks.zipcode.recipehipster.domain.Post.class.getName() + ".opinions");
             // jhipster-needle-ehcache-add-entry
         };
     }

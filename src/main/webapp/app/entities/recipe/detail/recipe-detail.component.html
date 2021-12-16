@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="recipe">
+      <h2 data-cy="recipeDetailsHeading"><span jhiTranslate="recipehipsterApp.recipe.detail.title">Recipe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ recipe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.title">Title</span></dt>
+        <dd>
+          <span>{{ recipe.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.notes">Notes</span></dt>
+        <dd>
+          <span>{{ recipe.notes }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.ingredients">Ingredients</span></dt>
+        <dd>
+          <span>{{ recipe.ingredients }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.steps">Steps</span></dt>
+        <dd>
+          <span>{{ recipe.steps }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.postDate">Post Date</span></dt>
+        <dd>
+          <span>{{ recipe.postDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="recipehipsterApp.recipe.chefster">Chefster</span></dt>
+        <dd>
+          <div *ngIf="recipe.chefster">
+            <a [routerLink]="['/chefster', recipe.chefster?.id, 'view']">{{ recipe.chefster?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/recipe', recipe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
